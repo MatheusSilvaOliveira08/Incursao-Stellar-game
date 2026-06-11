@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Press Start 2P", sans-serif;
+}
+
+canvas {
+    background-color: #121212;
+}
+
+.screen {
+    width: 100%;
+    height: 100dvh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    inset: 0;
+}
+
+.screen h1 {
+    font-size: 2rem;
+}
+
+.screen span {
+    font-size: 0.6rem;
+    color: #aaa;
+    margin-top: auto;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.start-screen > div {
+    margin-top: auto;
+}
+
+.button-play,
+.button-restart,
+.button-ranking {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    background-color: #ddd;
+    display: block;
+    margin: 20px auto 0;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.button-play:hover,
+.button-restart:hover,
+.button-ranking:hover {
+    background-color: #fff;
+}
+
+.game-over {
+    scale: 0;
+    animation: zoom 2s ease-in-out forwards;
+}
+
+.score-ui {
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 14px 40px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    display: none;
+}
+
+.score-ui > div {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@keyframes zoom {
+    from {
+        scale: 0;
+    }
+
+    to {
+        scale: 1;
+    }
+}
+
+/* ===== Tela de vitória ===== */
+.win-screen {
+    background-color: rgba(18, 18, 18, 0.55);
+}
+
+.win-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 92vw;
+}
+
+.win-title {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    text-align: center;
+    color: #ffd700;
+    animation: pop-in 0.6s ease-out, win-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes win-glow {
+    from {
+        text-shadow: 0 0 8px #ffd700, 0 0 16px #ff8c00;
+    }
+    to {
+        text-shadow: 0 0 18px #ffd700, 0 0 32px #ff8c00, 0 0 48px crimson;
+    }
+}
+
+.ranking {
+    margin-top: 28px;
+    animation: fade-up 0.8s ease-out 0.3s both;
+}
+
+.ranking h2 {
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.ranking-scroll {
+    max-width: 92vw;
+    overflow-x: auto;
+}
+
+.ranking-table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 0.55rem;
+    color: #ddd;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ranking-table th,
+.ranking-table td {
+    border: 1px solid #444;
+    padding: 8px 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.ranking-table th {
+    color: #941cff;
+}
+
+.ranking-table tr.current td {
+    color: #ffd700;
+    background-color: rgba(148, 28, 255, 0.25);
+}
+
+.button-restart-win {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    background-color: #ddd;
+    display: block;
+    margin: 28px auto 0;
+    font-size: 1rem;
+    cursor: pointer;
+    animation: fade-up 0.8s ease-out 0.5s both;
+}
+
+.button-restart-win:hover {
+    background-color: #fff;
+}
+
+@keyframes fade-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== Tela de ranking (após derrota) ===== */
+.ranking-screen {
+    background-color: rgba(18, 18, 18, 0.9);
+}
+
+.ranking-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 92vw;
+}
+
+.button-restart-ranking {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    background-color: #ddd;
+    display: block;
+    margin: 24px auto 0;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.button-restart-ranking:hover {
+    background-color: #fff;
+}
